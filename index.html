@@ -872,6 +872,92 @@
             padding: 0.2rem 0.5rem;
         }
 
+        /* Meter Notification Banner */
+        .meter-banner {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 0.6rem 1rem 0.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 997;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .meter-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .meter-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .meter-actions {
+            display: flex;
+            gap: 0.4rem;
+            align-items: center;
+        }
+
+        .meter-actions span {
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
+
+        .meter-btn {
+            background: #2ba3c7;
+            color: white;
+            border: none;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .meter-btn:hover {
+            background: #1e8aa8;
+        }
+
+        .meter-btn.secondary {
+            background: transparent;
+            color: #2ba3c7;
+            border: 1px solid #2ba3c7;
+        }
+
+        .meter-btn.secondary:hover {
+            background: #2ba3c7;
+            color: white;
+        }
+
+        .meter-dismiss {
+            position: absolute;
+            right: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1rem;
+            color: #856404;
+            cursor: pointer;
+            padding: 0.2rem;
+            line-height: 1;
+            width: 18px;
+            height: 18px;
+        }
+
+        .meter-dismiss:hover {
+            color: #533d03;
+        }
+
         /* Desktop Layout */
         @media (min-width: 768px) {
             body {
@@ -953,6 +1039,50 @@
         @media (max-width: 767px) {
             .related-articles {
                 display: none; /* Hide on mobile to avoid conflicts with bottom nav */
+            }
+
+            /* Mobile Meter Banner */
+            .meter-banner {
+                padding: 0.5rem 1rem 0.4rem;
+            }
+
+            .meter-banner-content {
+                flex-direction: row;
+                gap: 0.3rem;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .meter-text {
+                font-size: 0.75rem;
+                font-weight: 600;
+                margin-bottom: 0;
+            }
+
+            .meter-actions {
+                gap: 0.25rem;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .meter-actions span {
+                font-size: 0.65rem;
+                font-weight: 400;
+            }
+
+            .meter-btn {
+                padding: 0.2rem 0.4rem;
+                font-size: 0.65rem;
+                min-width: auto;
+            }
+
+            .meter-dismiss {
+                right: 0.5rem;
+                font-size: 0.9rem;
+                width: 16px;
+                height: 16px;
             }
 
             .header-content {
@@ -1154,6 +1284,25 @@
             </div>
         </div>
     </nav>
+
+    <!-- Meter Notification Banner -->
+    <div class="meter-banner" id="meterBanner">
+        <div class="meter-banner-content">
+            <div class="meter-text">
+                <span class="desktop-meter-text">Only 1 free article left this month.</span>
+                <span class="mobile-meter-text" style="display: none;">1 article left.</span>
+            </div>
+            <div class="meter-actions">
+                <a href="#" class="meter-btn desktop-meter-btn">Get unlimited access</a>
+                <a href="#" class="meter-btn mobile-meter-btn" style="display: none;">Continue reading</a>
+                <span style="color: #856404;">or</span>
+                <a href="#" class="meter-btn secondary">Log In</a>
+                <span class="desktop-meter-text" style="color: #856404;">to keep reading.</span>
+                <span class="mobile-meter-text" style="color: #856404; display: none;">for more.</span>
+            </div>
+        </div>
+        <button class="meter-dismiss" onclick="dismissMeterBanner()" title="Dismiss">×</button>
+    </div>
 
     <!-- Desktop Ad Banner -->
     <div class="desktop-ad-banner">
@@ -1403,9 +1552,47 @@
         let scrollTimeout = null;
         let isScrolling = false;
         
+        // Meter Banner Functions - Make globally accessible
+        window.dismissMeterBanner = function() {
+            const meterBanner = document.getElementById('meterBanner');
+            if (meterBanner) {
+                meterBanner.style.display = 'none';
+                console.log('📰 Meter banner dismissed');
+            }
+        }
+
+        function updateMeterText() {
+            const desktopTexts = document.querySelectorAll('.desktop-meter-text');
+            const mobileTexts = document.querySelectorAll('.mobile-meter-text');
+            const desktopBtn = document.querySelector('.desktop-meter-btn');
+            const mobileBtn = document.querySelector('.mobile-meter-btn');
+            const isDesktop = window.innerWidth >= 768;
+            
+            // Handle text elements
+            desktopTexts.forEach(element => {
+                element.style.display = isDesktop ? 'inline' : 'none';
+            });
+            
+            mobileTexts.forEach(element => {
+                element.style.display = isDesktop ? 'none' : 'inline';
+            });
+            
+            // Handle button elements
+            if (desktopBtn) {
+                desktopBtn.style.display = isDesktop ? 'inline-block' : 'none';
+            }
+            
+            if (mobileBtn) {
+                mobileBtn.style.display = isDesktop ? 'none' : 'inline-block';
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             followUsSection = document.querySelector('.follow-us-section');
             mobileMainNav = document.querySelector('.mobile-main-nav');
+            
+            // Initialize meter banner text
+            updateMeterText();
             
             // Handle sticky ad close functionality
             const stickyAdClose = document.querySelector('.sticky-ad-close');
@@ -1495,6 +1682,7 @@
                     console.log('📱 Device type changed to:', isDesktop ? 'Desktop' : 'Mobile');
                 }
                 updateFollowUsSectionTop();
+                updateMeterText(); // Update meter text on resize
             });
             
             // Initial calculation
