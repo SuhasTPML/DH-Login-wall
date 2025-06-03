@@ -1246,7 +1246,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            height: 60px;
+            height: 120px;
             background: linear-gradient(to bottom, 
                 rgba(255, 255, 255, 0) 0%,
                 rgba(255, 255, 255, 0.6) 30%,
@@ -2016,27 +2016,30 @@
                 <div class="paywall-fade-container" id="paywallContainer">
                     <div class="paywall-content" id="paywallContent">
                         <p>'Akashteer', the fully automated air defence control and reporting system emerged as the invisible force of new war capabilities during Operation Sindoor, launched against nine terror sites in Pakistan and Pakistan-occupied <a href="file:///C:/Users/suhas.bhandari/Downloads/Claude/Experiments/Paywall/V5/index.html#" style="color: #2ba3c7;">Kashmir</a>.</p>
-
-                        <div class="quote">
-                            "Definitely, our air defence system has performed exceedingly well, and I am sure there will be interest from other countries," Development Research and Organisation (DRDO) chief Samir V Kamat told PTI. The development was first reported by a news portal.
-                        </div>
-
-                        <p>Kamat expressed optimism regarding the future of India's defence technology during a visit to Nagpur, where he toured facilities focused on manufacturing drones, missiles, and rockets.</p>
-
-                        <p>The DRDO chief's confidence stems from the system's performance during recent operations, where it demonstrated superior capabilities in tracking and neutralizing threats with precision and efficiency.</p>
-
-                        <div class="ad-placeholder">
-                            ADVERTISEMENT
-                        </div>
-
-                        <p>The Akashteer system represents a significant milestone in India's journey towards self-reliance in defence technology, showcasing the country's growing capabilities in developing sophisticated military systems.</p>
-
-                        <p>Industry experts believe this breakthrough could open doors for international collaborations and export opportunities, positioning India as a key player in the global defence technology market.</p>
-
-                        <p>The successful deployment of indigenous systems like Akashteer demonstrates India's commitment to reducing dependency on foreign military technology while strengthening national security capabilities.</p>
                     </div>
                     
                     <div class="paywall-fade-overlay" id="paywallFadeOverlay"></div>
+                </div>
+
+                <!-- Hidden content that shows when paywall is not active -->
+                <div class="remaining-content" id="remainingContent">
+                    <div class="quote">
+                        "Definitely, our air defence system has performed exceedingly well, and I am sure there will be interest from other countries," Development Research and Organisation (DRDO) chief Samir V Kamat told PTI. The development was first reported by a news portal.
+                    </div>
+
+                    <p>Kamat expressed optimism regarding the future of India's defence technology during a visit to Nagpur, where he toured facilities focused on manufacturing drones, missiles, and rockets.</p>
+
+                    <p>The DRDO chief's confidence stems from the system's performance during recent operations, where it demonstrated superior capabilities in tracking and neutralizing threats with precision and efficiency.</p>
+
+                    <div class="ad-placeholder">
+                        ADVERTISEMENT
+                    </div>
+
+                    <p>The Akashteer system represents a significant milestone in India's journey towards self-reliance in defence technology, showcasing the country's growing capabilities in developing sophisticated military systems.</p>
+
+                    <p>Industry experts believe this breakthrough could open doors for international collaborations and export opportunities, positioning India as a key player in the global defence technology market.</p>
+
+                    <p>The successful deployment of indigenous systems like Akashteer demonstrates India's commitment to reducing dependency on foreign military technology while strengthening national security capabilities.</p>
                 </div>
 
                 <!-- Paywall Prompt Section -->
@@ -2351,12 +2354,14 @@
             const paywallContent = document.getElementById('paywallContent');
             const paywallFadeOverlay = document.getElementById('paywallFadeOverlay');
             const paywallPrompt = document.getElementById('paywallPrompt');
+            const remainingContent = document.getElementById('remainingContent');
             
-            // Add paywall classes and show elements
+            // Add paywall classes and show/hide elements
             articleBody.classList.add('paywall-active');
             paywallContent.classList.add('faded');
             paywallFadeOverlay.style.display = 'block';
             paywallPrompt.style.display = 'block';
+            remainingContent.style.display = 'none'; // Hide remaining content
             
             // Smooth scroll to paywall prompt
             setTimeout(() => {
@@ -2377,12 +2382,14 @@
             const paywallContent = document.getElementById('paywallContent');
             const paywallFadeOverlay = document.getElementById('paywallFadeOverlay');
             const paywallPrompt = document.getElementById('paywallPrompt');
+            const remainingContent = document.getElementById('remainingContent');
             
-            // Remove paywall classes and hide elements
+            // Remove paywall classes and show/hide elements
             articleBody.classList.remove('paywall-active');
             paywallContent.classList.remove('faded');
             paywallFadeOverlay.style.display = 'none';
             paywallPrompt.style.display = 'none';
+            remainingContent.style.display = 'block'; // Show remaining content
             
             console.log('✅ Paywall DEACTIVATED - Full article access restored');
         }
