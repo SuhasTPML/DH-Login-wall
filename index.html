@@ -1575,16 +1575,16 @@
             
             /* Compact mobile text and buttons */
             .meter-banner.active .meter-text {
-                font-size: 0.75rem;
+                font-size: 0.9rem; /* Increased from 0.75rem for better readability */
             }
             
             .meter-banner.active .meter-btn {
                 padding: 0.25rem 0.5rem;
-                font-size: 0.7rem;
+                font-size: 0.8rem; /* Increased from 0.7rem for better readability */
             }
             
             .meter-banner.active .meter-actions span {
-                font-size: 0.65rem;
+                font-size: 0.9rem; /* Matched to main text size for consistency */
             }
         }
         
@@ -2022,16 +2022,16 @@
 
     <!-- Dev Mode Panel -->
     <div class="dev-mode-panel" id="devModePanel">
-        <h3>🔧 Dev Mode - Login Meter</h3>
+        <h3>🔧 Dev Mode - Login Configuration</h3>
         
         <div class="dev-control-group">
             <label for="currentArticles">Current Articles Used:</label>
-            <input type="number" id="currentArticles" min="0" max="10" value="2">
+            <input type="number" id="currentArticles" min="0" max="5" value="2">
         </div>
         
         <div class="dev-control-group">
             <label for="totalArticles">Total Articles Limit:</label>
-            <input type="number" id="totalArticles" min="1" max="10" value="3">
+            <input type="number" id="totalArticles" min="1" max="5" value="3">
         </div>
         
         <div class="dev-buttons">
@@ -2041,56 +2041,6 @@
         
         <div class="dev-status" id="devStatus">
             Current: 2/3 articles (67% used)
-        </div>
-        
-        <div class="dev-presets">
-            <h4>Quick Presets:</h4>
-            <div class="dev-preset-buttons">
-                <button class="dev-preset-btn" onclick="setMeterPreset(1, 3)">3-Article: 1 used (2 left)</button>
-                <button class="dev-preset-btn" onclick="setMeterPreset(2, 3)">3-Article: 2 used (1 left)</button>
-                <button class="dev-preset-btn" onclick="setMeterPreset(3, 3)">3-Article: Limit reached</button>
-                <button class="dev-preset-btn" onclick="setMeterPreset(4, 5)">5-Article: 4 used (1 left)</button>
-                <button class="dev-preset-btn" onclick="setMeterPreset(5, 5)">5-Article: Limit reached</button>
-                <button class="dev-preset-btn" onclick="setMeterPreset(9, 10)">10-Article: 9 used (1 left)</button>
-            </div>
-        </div>
-        
-        <div class="dev-control-group">
-            <label for="triggerBlock">Trigger Login Wall at Block:</label>
-            <input type="number" id="triggerBlock" min="1" max="20" value="3">
-            <div class="dev-status" style="font-size: 0.7rem; margin-top: 0.3rem; color: #666;">
-                <strong>Content Block Mode:</strong> Paywall triggers when user reaches specified block (1-10)<br>
-                <strong>999 = Never:</strong> Uses article count limit instead<br>
-                <em>Note: Content block trigger overrides article count when active</em>
-            </div>
-        </div>
-        
-        <div class="dev-presets">
-            <h4>Content Block Presets:</h4>
-            <div class="dev-preset-buttons">
-                <button class="dev-preset-btn" onclick="setTriggerBlock(1)">Block 1 (Early)</button>
-                <button class="dev-preset-btn" onclick="setTriggerBlock(3)">Block 3 (Default)</button>
-                <button class="dev-preset-btn" onclick="setTriggerBlock(5)">Block 5 (Mid)</button>
-                <button class="dev-preset-btn" onclick="setTriggerBlock(10)">Block 10 (Late)</button>
-                <button class="dev-preset-btn" onclick="setTriggerBlock(999)">Never Trigger</button>
-            </div>
-        </div>
-        
-        <div class="dev-presets">
-            <h4>Paywall Controls:</h4>
-            <div class="dev-preset-buttons">
-                                <button class="dev-preset-btn" onclick="devShowPaywall()" style="background: #ffebee; border-color: #f44336; color: #d32f2f;">🚧 Show Paywall</button>
-                <button class="dev-preset-btn" onclick="deactivatePaywall()" style="background: #e8f5e8; border-color: #4caf50; color: #2e7d32;">✅ Hide Paywall</button>
-                <button class="dev-preset-btn" onclick="resetContentBlocks()" style="background: #fff3e0; border-color: #ff9800; color: #f57c00;">🔄 Reset Blocks</button>
-            </div>
-        </div>
-        
-        <div class="dev-presets">
-            <h4>Login Banner Controls:</h4>
-            <div class="dev-preset-buttons">
-                <button class="dev-preset-btn" onclick="forceShowBanner()" style="background: #e3f2fd; border-color: #2196f3; color: #1976d2;">📱 Show Banner</button>
-                <button class="dev-preset-btn" onclick="resetInteractionState()" style="background: #fce4ec; border-color: #e91e63; color: #c2185b;">🔄 Reset Interaction</button>
-            </div>
         </div>
     </div>
 
@@ -2766,15 +2716,15 @@
                 return;
             }
             
-            if (total > 10) {
-                alert('Total articles cannot exceed 10!');
-                totalInput.value = 10;
+            if (total > 5) {
+                alert('Total articles cannot exceed 5!');
+                totalInput.value = 5;
                 return;
             }
             
-            if (current > 10) {
-                alert('Current articles cannot exceed 10!');
-                currentInput.value = Math.min(10, total);
+            if (current > 5) {
+                alert('Current articles cannot exceed 5!');
+                currentInput.value = Math.min(5, total);
                 return;
             }
             
@@ -2805,27 +2755,12 @@
             console.log('🔧 Dev Mode: Reset to default settings (2/3 articles)');
         }
         
-        function setMeterPreset(used, limit) {
-            document.getElementById('currentArticles').value = used;
-            document.getElementById('totalArticles').value = limit;
-            
-            METER_CONFIG.articlesUsed = used;
-            METER_CONFIG.articlesLimit = limit;
-            
-            updateMeterDisplay();
-            updateDevStatus();
-            checkAndTriggerPaywall(); // Check if paywall should be triggered
-            
-            console.log(`🔧 Dev Mode: Applied preset ${used}/${limit} articles (${METER_CONFIG.percentage}%)`);
-        }
-        
         function updateDevStatus() {
             const statusDiv = document.getElementById('devStatus');
             if (statusDiv) {
                 const percentage = METER_CONFIG.percentage;
                 const remaining = METER_CONFIG.remaining;
-                const triggerMode = contentBlockTrigger === 999 ? 'Article Count' : `Block ${contentBlockTrigger}`;
-                statusDiv.textContent = `Current: ${METER_CONFIG.articlesUsed}/${METER_CONFIG.articlesLimit} articles (${percentage}% used, ${remaining} remaining) | Trigger Mode: ${triggerMode}`;
+                statusDiv.textContent = `Current: ${METER_CONFIG.articlesUsed}/${METER_CONFIG.articlesLimit} articles (${percentage}% used, ${remaining} remaining)`;
             }
         }
         
