@@ -2026,12 +2026,12 @@
         
         <div class="dev-control-group">
             <label for="currentArticles">Current Articles Used:</label>
-            <input type="number" id="currentArticles" min="0" max="10" value="2">
+            <input type="number" id="currentArticles" min="0" max="20" value="4">
         </div>
         
         <div class="dev-control-group">
             <label for="totalArticles">Total Articles Limit:</label>
-            <input type="number" id="totalArticles" min="1" max="10" value="3">
+            <input type="number" id="totalArticles" min="1" max="20" value="5">
         </div>
         
         <div class="dev-buttons">
@@ -2040,18 +2040,18 @@
         </div>
         
         <div class="dev-status" id="devStatus">
-            Current: 2/3 articles (67% used)
+            Current: 4/5 articles (80% used)
         </div>
         
         <div class="dev-presets">
             <h4>Quick Presets:</h4>
             <div class="dev-preset-buttons">
-                <button class="dev-preset-btn" onclick="setMeterPreset(1, 3)">3-Article: 1 used (2 left)</button>
-                <button class="dev-preset-btn" onclick="setMeterPreset(2, 3)">3-Article: 2 used (1 left)</button>
-                <button class="dev-preset-btn" onclick="setMeterPreset(3, 3)">3-Article: Limit reached</button>
-                <button class="dev-preset-btn" onclick="setMeterPreset(4, 5)">5-Article: 4 used (1 left)</button>
-                <button class="dev-preset-btn" onclick="setMeterPreset(5, 5)">5-Article: Limit reached</button>
-                <button class="dev-preset-btn" onclick="setMeterPreset(9, 10)">10-Article: 9 used (1 left)</button>
+                <button class="dev-preset-btn" onclick="setMeterPreset(0, 5)">Fresh User (0/5)</button>
+                <button class="dev-preset-btn" onclick="setMeterPreset(1, 5)">Low Usage (1/5)</button>
+                <button class="dev-preset-btn" onclick="setMeterPreset(3, 5)">Medium (3/5)</button>
+                <button class="dev-preset-btn" onclick="setMeterPreset(4, 5)">High (4/5)</button>
+                <button class="dev-preset-btn" onclick="setMeterPreset(5, 5)">Limit Reached (5/5)</button>
+                <button class="dev-preset-btn" onclick="setMeterPreset(2, 10)">Premium (2/10)</button>
             </div>
         </div>
         
@@ -2136,19 +2136,23 @@
     <div class="meter-banner" id="meterBanner">
         <div class="meter-banner-content">
             <div class="meter-text">
-                <span class="desktop-meter-text" id="desktopMeterText" style="display: inline;">Only 1 free article left.</span>
-                <span class="mobile-meter-text" id="mobileMeterText" style="display: none;">Only 1 left.</span>
+                <span class="desktop-meter-text" style="display: inline;">Only 1 free article left this month.</span>
+                <span class="mobile-meter-text" style="display: none;">1 article left.</span>
             </div>
             <div class="meter-actions">
-                <a href="file:///C:/Users/suhas.bhandari/Downloads/Claude/Experiments/Paywall/V5/index.html#" class="meter-btn">Log in</a>
-                <span style="color: #856404;">for unlimited access.</span>
+                <a href="file:///C:/Users/suhas.bhandari/Downloads/Claude/Experiments/Paywall/V5/index.html#" class="meter-btn desktop-meter-btn" style="display: inline-block;">Continue reading free</a>
+                <a href="file:///C:/Users/suhas.bhandari/Downloads/Claude/Experiments/Paywall/V5/index.html#" class="meter-btn mobile-meter-btn" style="display: none;">Continue reading</a>
+                <span style="color: #856404;">or</span>
+                <a href="file:///C:/Users/suhas.bhandari/Downloads/Claude/Experiments/Paywall/V5/index.html#" class="meter-btn secondary">Log In</a>
+                <span class="desktop-meter-text" style="color: rgb(133, 100, 4); display: inline;">to keep reading.</span>
+                <span class="mobile-meter-text" style="color: rgb(133, 100, 4); display: none;">for more.</span>
             </div>
         </div>
         <button class="meter-dismiss" onclick="dismissMeterBanner()" title="Dismiss">×</button>
         
         <!-- Progress Bar -->
-        <div class="meter-progress-container" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" aria-label="Article consumption: 2 out of 3 articles used (67% of limit)">
-            <div class="meter-progress-bar medium-usage" id="meterProgressBar" style="width: 67%;"></div>
+        <div class="meter-progress-container" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Article consumption: 4 out of 5 articles used (80% of limit)">
+            <div class="meter-progress-bar high-usage" id="meterProgressBar" style="width: 80%;"></div>
         </div>
     </div>
 
@@ -2496,8 +2500,8 @@
         
         // Meter Configuration
         const METER_CONFIG = {
-        articlesUsed: 2,
-        articlesLimit: 3,
+        articlesUsed: 4,
+        articlesLimit: 5,
         get percentage() {
         return Math.round((this.articlesUsed / this.articlesLimit) * 100);
         },
@@ -2505,44 +2509,6 @@
         return this.articlesLimit - this.articlesUsed;
         }
         };
-        
-        // Update meter display text based on remaining articles
-        function updateMeterDisplay() {
-            const remaining = METER_CONFIG.remaining;
-            const desktopText = document.getElementById('desktopMeterText');
-            const mobileText = document.getElementById('mobileMeterText');
-            
-            if (remaining === 2) {
-                desktopText.textContent = '2 free articles left.';
-                mobileText.textContent = '2 articles left.';
-            } else if (remaining === 1) {
-                desktopText.textContent = 'Only 1 free article left.';
-                mobileText.textContent = 'Only 1 left.';
-            } else if (remaining > 2) {
-                desktopText.textContent = `${remaining} free articles left.`;
-                mobileText.textContent = `${remaining} articles left.`;
-            }
-            
-            // Update progress bar class based on usage
-            const progressBar = document.getElementById('meterProgressBar');
-            const percentage = METER_CONFIG.percentage;
-            
-            if (progressBar) {
-                progressBar.className = 'meter-progress-bar';
-                if (percentage >= 90) {
-                    progressBar.classList.add('critical-usage');
-                } else if (percentage >= 70) {
-                    progressBar.classList.add('high-usage');
-                } else if (percentage >= 40) {
-                    progressBar.classList.add('medium-usage');
-                } else {
-                    progressBar.classList.add('low-usage');
-                }
-                progressBar.style.width = percentage + '%';
-                progressBar.setAttribute('aria-valuenow', percentage);
-                progressBar.parentElement.setAttribute('aria-label', `Article consumption: ${METER_CONFIG.articlesUsed} out of ${METER_CONFIG.articlesLimit} articles used (${percentage}% of limit)`);
-            }
-        }
 
         // Login Banner Interaction Tracking
         let userHasInteracted = false;
@@ -2647,7 +2613,6 @@
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
             initializeInteractionListeners();
-            updateMeterDisplay(); // Initialize banner text
             
             // Update banner height on window resize
             window.addEventListener('resize', () => {
@@ -2766,24 +2731,13 @@
                 return;
             }
             
-            if (total > 10) {
-                alert('Total articles cannot exceed 10!');
-                totalInput.value = 10;
-                return;
-            }
-            
-            if (current > 10) {
-                alert('Current articles cannot exceed 10!');
-                currentInput.value = Math.min(10, total);
-                return;
-            }
-            
             // Update meter configuration
             METER_CONFIG.articlesUsed = current;
             METER_CONFIG.articlesLimit = total;
             
             // Update display
             updateMeterDisplay();
+            initializeMeterProgress();
             updateDevStatus();
             checkAndTriggerPaywall(); // Check if paywall should be triggered
             
@@ -2792,17 +2746,18 @@
         
         function resetMeterSettings() {
             // Reset to default values
-            document.getElementById('currentArticles').value = 2;
-            document.getElementById('totalArticles').value = 3;
+            document.getElementById('currentArticles').value = 4;
+            document.getElementById('totalArticles').value = 5;
             
-            METER_CONFIG.articlesUsed = 2;
-            METER_CONFIG.articlesLimit = 3;
+            METER_CONFIG.articlesUsed = 4;
+            METER_CONFIG.articlesLimit = 5;
             
             updateMeterDisplay();
+            initializeMeterProgress();
             updateDevStatus();
             checkAndTriggerPaywall(); // Check if paywall should be triggered
             
-            console.log('🔧 Dev Mode: Reset to default settings (2/3 articles)');
+            console.log('🔧 Dev Mode: Reset to default settings (4/5 articles)');
         }
         
         function setMeterPreset(used, limit) {
@@ -2813,6 +2768,7 @@
             METER_CONFIG.articlesLimit = limit;
             
             updateMeterDisplay();
+            initializeMeterProgress();
             updateDevStatus();
             checkAndTriggerPaywall(); // Check if paywall should be triggered
             
