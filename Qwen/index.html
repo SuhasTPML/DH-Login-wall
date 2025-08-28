@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- saved from url=(0084)file:///C:/Users/suhas.bhandari/Documents/GitHub/DH-Login-wall/index%20-%20Copy.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,85 +8,1699 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>India's 'Akashteer' system shines in Ops Sindoor, DRDO chief foresees international demand - Deccan Herald</title>
     <style>
-        /* Base and Article Styles (unchanged) */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto Slab', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f5f5f5; }
-        .top-header { background: linear-gradient(135deg, #2ba3c7, #1e8aa8); color: white; padding: 0.4rem 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 1rem; }
-        .main-nav { display: none; }
-        .logo { font-size: 1.8rem; font-weight: bold; }
-        .header-right { display: flex; align-items: center; gap: 1rem; font-size: 0.8rem; }
-        .sign-in-btn { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 0.3rem 0.6rem; border-radius: 4px; text-decoration: none; transition: background 0.3s; font-size: 0.75rem; }
-        .dev-mode-panel { position: fixed; top: 100px; right: 20px; background: white; border: 2px solid #2ba3c7; border-radius: 8px; padding: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.15); z-index: 1001; min-width: 280px; display: none; }
-        .dev-mode-panel.active { display: block; }
-        .dev-control-group { margin-bottom: 1rem; }
-        .dev-control-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
-        .dev-control-group input { width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; }
-        .dev-buttons { display: flex; gap: 0.5rem; margin-top: 1rem; }
-        .dev-btn { flex: 1; padding: 0.5rem; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; }
-        .dev-btn.primary { background: #2ba3c7; color: white; }
-        .dev-btn.secondary { background: #f8f9fa; border: 1px solid #ddd; }
-        .dev-status { margin-top: 0.5rem; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
-        .article-content { background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden; }
-        .article-header { padding: 2rem; border-bottom: 1px solid #eee; }
-        .article-title { font-size: 2.2rem; font-weight: bold; margin-bottom: 1rem; }
-        .article-body { padding: 0 2rem 2rem; }
-        .paywall-fade-container { position: relative; }
-        .paywall-content.faded { pointer-events: none; user-select: none; }
-        .paywall-fade-overlay { position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(to bottom, transparent, white); pointer-events: none; z-index: 2; display: none; }
-        .paywall-prompt { display: none; text-align: center; padding: 1.5rem; }
-        .mobile-bottom-container { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; }
-        .mobile-nav { display: flex; background: white; border-top: 1px solid #eee; }
-        .mobile-nav-item { flex: 1; padding: 0.4rem 0.3rem; text-align: center; text-decoration: none; color: #666; font-size: 0.65rem; }
+        /* Tab Styles */
+        .news-tabs-container {
+            position: relative;
+        }
         
-        /* --- REVISED: Material 3 Snackbar Styles (Mobile First) --- */
-        .m3-snackbar {
+        .tabs-header {
+            display: flex;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .tab-button {
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #666;
+            cursor: pointer;
+            position: relative;
+            text-align: center;
+            flex: 1;
+            transition: all 0.2s ease;
+        }
+        
+        .tab-button.active {
+            color: #2ba3c7;
+            font-weight: 600;
+        }
+        
+        .tab-button.active:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #2ba3c7;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1rem;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto Slab', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* Header Styles */
+        .top-header {
+            background: linear-gradient(135deg, #2ba3c7, #1e8aa8);
+            color: white;
+            padding: 0.4rem 0;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex: 1;
+            margin-left: 2rem;
+            overflow-x: auto;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
+
+        .main-nav a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-separator {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.7rem;
+            margin: 0 0.1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+        }
+
+        /* Dev Mode Styles */
+        .dev-mode-toggle {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+
+        .dev-mode-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .dev-mode-toggle.active {
+            background: #ff6b6b;
+            border-color: #ff5252;
+        }
+
+        .dev-mode-panel {
             position: fixed;
-            left: 12px;
-            right: 12px;
-            bottom: 12px;
+            top: 100px;
+            right: 20px;
+            background: white;
+            border: 2px solid #2ba3c7;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            z-index: 1001;
+            min-width: 280px;
+            display: none;
+        }
+
+        .dev-mode-panel.active {
+            display: block;
+        }
+
+        .dev-mode-panel h3 {
+            margin: 0 0 1rem 0;
+            color: #2ba3c7;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #2ba3c7;
+            padding-bottom: 0.5rem;
+        }
+
+        .dev-control-group {
+            margin-bottom: 1rem;
+        }
+
+        .dev-control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .dev-control-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .dev-control-group input:focus {
+            outline: none;
+            border-color: #2ba3c7;
+            box-shadow: 0 0 0 2px rgba(43, 163, 199, 0.2);
+        }
+
+        .dev-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .dev-btn {
+            flex: 1;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .dev-btn.primary {
+            background: #2ba3c7;
+            color: white;
+        }
+
+        .dev-btn.primary:hover {
+            background: #1e8aa8;
+        }
+
+        .dev-btn.secondary {
+            background: #f8f9fa;
+            color: #666;
+            border: 1px solid #ddd;
+        }
+
+        .dev-btn.secondary:hover {
+            background: #e9ecef;
+        }
+
+        .dev-status {
+            background: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .dev-presets {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .dev-presets h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .dev-preset-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+
+        .dev-preset-btn {
+            padding: 0.3rem 0.6rem;
+            background: #f0f8ff;
+            border: 1px solid #2ba3c7;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dev-preset-btn:hover {
+            background: #2ba3c7;
+            color: white;
+        }
+
+        /* Mobile responsive styles for dev mode */
+                /* Mobile responsive styles for dev mode */
+        @media (max-width: 767px) {
+            .dev-mode-panel {
+                top: 60px; /* Distance from the top of the viewport */
+                right: 10px;
+                left: 10px;
+                min-width: auto;
+                max-width: none; /* Allow it to use the full width between left/right 10px */
+                
+                /* --- Added for scrollability --- */
+                max-height: calc(100vh - 80px); /* 100% viewport height - 60px top offset - 20px bottom buffer */
+                overflow-y: auto; /* Enable vertical scroll if content exceeds max-height */
+                /* --- End of added styles --- */
+            }
+            
+            .dev-mode-toggle {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.7rem;
+            }
+            
+            .dev-preset-buttons {
+                justify-content: center;
+            }
+            
+            .dev-preset-btn {
+                flex: 1;
+                min-width: 0;
+                text-align: center;
+            }
+        }
+
+        .header-right span {
+            color: white;
+            font-weight: 500;
+        }
+
+        .sign-in-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-size: 0.75rem;
+        }
+
+        .sign-in-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background: white;
+            color: #333;
+            padding: 0.4rem 0;
+            position: relative;
+            z-index: 999;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            overflow-x: auto;
+            padding: 0.2rem 0;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.8rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #f0f0f0;
+            color: #2ba3c7;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: #2ba3c7;
+            text-decoration: none;
+        }
+
+        /* Article Content */
+        .article-content {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .article-header {
+            padding: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .article-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .article-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .timestamp {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Follow Us Section */
+        .follow-us-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .follow-us-section.sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 0.8rem 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-top: none;
+            border-bottom: 1px solid #eee;
+            margin: 0;
+            transition: top 0.3s ease;
+        }
+
+        .follow-us-label {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        .follow-us-icons {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .follow-icon {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.4rem 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #666;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .follow-icon:hover {
+            background: #f8f9fa;
+            border-color: #2ba3c7;
+            color: #2ba3c7;
+        }
+
+        .whatsapp-icon {
+            color: #25D366;
+        }
+
+        .whatsapp-icon:hover {
+            background: #f0f8f4;
+            border-color: #25D366;
+            color: #25D366;
+        }
+
+        .google-news-icon {
+            color: #4285f4;
+        }
+
+        .google-news-icon:hover {
+            background: #f2f6ff;
+            border-color: #4285f4;
+            color: #4285f4;
+        }
+
+        .comments-icon {
+            position: relative;
+        }
+
+        .comment-count {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .share-icon {
+            color: #666;
+        }
+
+        /* Main Image */
+        .main-image {
+            position: relative;
+            margin: 0 2rem 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 1rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Article Body */
+        .article-body {
+            padding: 0 2rem 2rem;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .quote {
+            background: #f8f9fa;
+            border-left: 4px solid #2ba3c7;
+            padding: 1rem;
+            margin: 2rem 0;
+            font-style: italic;
+            border-radius: 4px;
+        }
+
+        /* Video Player */
+        .video-container {
+            margin: 2rem 0;
+            position: relative;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #1a1a1a, #333);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: none;
+        }
+
+        .sidebar-section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            background: #2ba3c7;
+            color: white;
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .sidebar-content {
+            padding: 1rem;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-thumbnail {
+            width: 80px;
+            height: 60px;
+            background: #ddd;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .news-content h4 {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-content h4 a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .news-content h4 a:hover {
+            color: #2ba3c7;
+        }
+
+        .news-time {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Related Articles */
+        .related-articles {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .related-articles h3 {
+            display: none; /* Hide the Related Articles heading */
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            width: 100%; /* Ensure full width */
+        }
+
+        .related-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: box-shadow 0.3s;
+        }
+
+        .related-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .related-thumbnail {
+            width: 80px;
+            height: 60px;
+            background: #ddd;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .related-content h4 {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .related-content h4 a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .related-content h4 a:hover {
+            color: #2ba3c7;
+        }
+
+        /* Desktop Sticky Related Articles */
+        @media (min-width: 768px) {
+            .related-articles {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: 0;
+                padding: 0.2rem 0.5rem; /* Reduce top/bottom padding */
+                border-radius: 0;
+                border-top: 1px solid #ddd;
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+                z-index: 998;
+                max-height: 80px;
+                height: 80px; /* Ensure consistent height */
+                overflow: hidden;
+                display: flex;
+                align-items: center; /* Center content vertically */
+            }
+
+            .related-articles::before,
+            .related-articles::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 30px;
+                pointer-events: none;
+                z-index: 10;
+            }
+
+            .related-articles::before {
+                left: 0;
+                background: linear-gradient(to right, white 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+            }
+
+            .related-articles::after {
+                right: 0;
+                background: linear-gradient(to left, white 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+            }
+
+            .related-articles h3 {
+                display: none; /* Hide heading on desktop too */
+            }
+
+            .related-grid {
+                display: flex;
+                gap: 0.5rem;
+                max-width: 100%; /* Full width instead of 1200px */
+                margin: 0;
+                overflow-x: auto;
+                padding: 0; /* Remove bottom padding */
+                scroll-behavior: smooth;
+                scrollbar-width: thin;
+                scrollbar-color: #ccc transparent;
+                width: 100%; /* Ensure full width */
+                height: 100%; /* Fill parent height */
+                align-items: stretch; /* Stretch items to full height */
+            }
+
+            .related-grid::-webkit-scrollbar {
+                height: 4px;
+            }
+
+            .related-grid::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .related-grid::-webkit-scrollbar-thumb {
+                background: #ccc;
+                border-radius: 2px;
+            }
+
+            .related-grid::-webkit-scrollbar-thumb:hover {
+                background: #999;
+            }
+
+            .related-item {
+                min-width: 240px;
+                max-width: 240px;
+                padding: 0.3rem;
+                gap: 0.3rem;
+                flex-shrink: 0;
+                border: 1px solid #eee;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                height: 100%; /* Fill available height */
+                display: flex;
+                align-items: center; /* Center content vertically */
+                margin: 0; /* Remove any margins */
+            }
+
+            .related-item:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                border-color: #2ba3c7;
+            }
+
+            .related-thumbnail {
+                width: 50px;
+                height: 35px;
+            }
+
+            .related-content h4 {
+                font-size: 0.7rem;
+                line-height: 1.2;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                margin: 0; /* Remove all margins */
+                padding: 0; /* Remove any padding */
+            }
+        }
+
+        /* Advertisement Placeholder */
+        .ad-placeholder {
+            background: #f0f0f0;
+            border: 2px dashed #ccc;
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        /* Mobile Bottom Navigation */
+        .mobile-bottom-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sticky-ad {
+            background: #f0f0f0;
+            color: #666;
+            padding: 1.4rem 1rem;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .sticky-ad:hover {
+            background: #e8e8e8;
+        }
+
+        .sticky-ad-close {
+            position: absolute;
+            right: 0.5rem;
+            background: #ccc;
+            border: none;
+            color: #666;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-nav {
+            display: flex;
+            background: white;
+            border-top: 1px solid #eee;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .mobile-nav-item {
+            flex: 1;
+            padding: 0.4rem 0.3rem;
+            text-align: center;
+            text-decoration: none;
+            color: #666;
+            font-size: 0.65rem;
+            border-right: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.1rem;
+        }
+
+        .mobile-nav-item:last-child {
+            border-right: none;
+        }
+
+        .mobile-nav-item.active {
+            color: #2ba3c7;
+            background: #f8f9fa;
+        }
+
+        .mobile-nav-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Mobile Main Navigation */
+        .mobile-main-nav {
+            display: none;
+            background: #1a1a1a;
+            color: white;
+            padding: 0.3rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            overflow-x: auto;
+            transition: transform 0.3s ease;
+            /* Hide scrollbar */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .mobile-main-nav::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .mobile-main-nav.hidden {
+            transform: translateY(-100%);
+            pointer-events: none;
+        }
+
+        .mobile-main-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .mobile-main-nav-links {
+            display: flex;
+            gap: 0.8rem;
+            padding: 0.2rem 0;
+            white-space: nowrap;
+        }
+
+        .mobile-main-nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        .mobile-main-nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .mobile-nav-separator {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.6rem;
+        }
+
+        /* Sidebar Ad Slot 300x250 */
+        .sidebar-ad-slot {
+            background: #f0f0f0;
+            border: 2px dashed #ccc;
+            width: 300px;
+            height: 250px;
+            margin: 0 auto 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            position: relative;
+        }
+
+        .sidebar-ad-slot::before {
+            content: 'ADVERTISEMENT';
+            position: absolute;
+            top: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: #999;
+            background: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+        }
+
+        /* Desktop Ad Slot */
+        .desktop-ad-banner {
+            display: none;
+            background: #f0f0f0;
+            border: 2px dashed #ccc;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #666;
+            margin: 1.5rem auto;
+            max-width: 1200px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            min-height: 200px;
+            position: relative;
+        }
+
+        .desktop-ad-banner::before {
+            content: 'ADVERTISEMENT';
+            position: absolute;
+            top: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: #999;
+            background: #f0f0f0;
+            padding: 0.2rem 0.5rem;
+        }
+
+        /* Login Wall Styles */
+        .article-body.paywall-active {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .paywall-fade-container {
+            position: relative;
+        }
+
+        .paywall-fade-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.6) 30%,
+                rgba(255, 255, 255, 0.9) 60%,
+                rgba(255, 255, 255, 1) 100%
+            );
+            pointer-events: none;
+            z-index: 2;
+            display: none; /* Hidden by default */
+        }
+
+        .paywall-content {
+            /* Normal state - fully visible when paywall not active */
+            opacity: 1;
+            pointer-events: auto;
+            user-select: auto;
+            position: relative;
+        }
+
+        .paywall-content.faded {
+            /* Keep content readable, just add overlay fade */
+            opacity: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .paywall-prompt {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border: 2px solid #2ba3c7;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(43, 163, 199, 0.15);
+            position: relative;
+            z-index: 3;
+        }
+
+        .paywall-prompt h3 {
+            color: #1a1a1a;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .paywall-prompt p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .paywall-benefits {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .paywall-benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2ba3c7;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .paywall-benefit-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #2ba3c7;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .paywall-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .paywall-btn {
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 160px;
+            justify-content: center;
+        }
+
+        .paywall-btn.primary {
+            background: linear-gradient(135deg, #2ba3c7, #1e8aa8);
+            color: white;
+            box-shadow: 0 4px 12px rgba(43, 163, 199, 0.3);
+        }
+
+        .paywall-btn.primary:hover {
+            background: linear-gradient(135deg, #1e8aa8, #1565c0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(43, 163, 199, 0.4);
+        }
+
+        .paywall-btn.secondary {
+            background: transparent;
+            color: #2ba3c7;
+            border: 2px solid #2ba3c7;
+        }
+
+        .paywall-btn.secondary:hover {
+            background: #2ba3c7;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .paywall-login-text {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .paywall-login-link {
+            color: #2ba3c7;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .paywall-login-link:hover {
+            color: #1e8aa8;
+            text-decoration: underline;
+        }
+
+        .paywall-benefits-section {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .paywall-benefits-heading {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0 0 1rem 0;
+            text-align: center;
+        }
+
+        .paywall-social-login {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .paywall-social-text {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .paywall-social-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .paywall-social-btn {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .paywall-social-btn:hover {
+            border-color: #2ba3c7;
+            background: #f8f9fa;
+            transform: translateY(-1px);
+        }
+
+        .paywall-dismiss {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .paywall-dismiss:hover {
+            background: #e9ecef;
+            border-color: #999;
+            color: #333;
+        }
+
+        /* Content Block Styles */
+        .content-block {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .block-marker {
+            position: absolute;
+            top: -8px;
+            right: 8px;
+            background: #2ba3c7;
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            z-index: 10;
+            opacity: 0.8;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            display: none; /* Hidden by default */
+        }
+        
+        /* Only show visual indicators in dev mode */
+        .dev-mode-active .block-marker {
+            display: block !important;
+        }
+        
+        .dev-mode-active .content-block.reached {
+            background: linear-gradient(90deg, rgba(43, 163, 199, 0.1) 0%, transparent 100%);
+            border-left: 3px solid #2ba3c7;
+            padding-left: 1rem;
+            margin-left: -1rem;
+        }
+        
+        .dev-mode-active .content-block.trigger-point {
+            background: linear-gradient(90deg, rgba(255, 107, 107, 0.1) 0%, transparent 100%);
+            border-left: 3px solid #ff6b6b;
+            padding-left: 1rem;
+            margin-left: -1rem;
+        }
+        
+        .dev-mode-active .content-block.trigger-point .block-marker {
+            background: #ff6b6b;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 767px) {
+            .paywall-prompt {
+                padding: 1rem;
+                margin: 1rem 0;
+                border-radius: 8px;
+            }
+
+            .paywall-prompt h3 {
+                font-size: 1.4rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .paywall-prompt p {
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .paywall-actions {
+                margin-top: 1rem;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .paywall-login-text {
+                margin-top: 0.75rem;
+            }
+
+            .paywall-benefits-section {
+                margin-top: 1rem;
+                padding-top: 0.75rem;
+            }
+
+            .paywall-benefits {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+                margin: 0.75rem 0;
+            }
+
+            .paywall-btn {
+                min-width: auto;
+                width: 100%;
+            }
+
+            .paywall-social-buttons {
+                flex-direction: column;
+            }
+
+            .paywall-social-btn {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .paywall-fade-overlay {
+                height: 45px;
+                background: linear-gradient(to bottom, 
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.6) 30%,
+                    rgba(255, 255, 255, 0.9) 60%,
+                    rgba(255, 255, 255, 1) 100%
+                );
+            }
+        }
+
+        /* Desktop Layout */
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 80px; /* Account for reduced height of sticky related articles */
+            }
+
+            .top-header {
+                position: sticky;
+                top: 0;
+            }
+
+            .mobile-main-nav {
+                display: none;
+            }
+
+            .nav-bar {
+                position: relative;
+                background: #1a1a1a;
+                color: white;
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                color: white;
+            }
+
+            .nav-links a:hover,
+            .nav-links a.active {
+                background: #2ba3c7;
+                color: white;
+            }
+            
+            .follow-us-section.sticky {
+                position: fixed !important;
+                top: 59px !important;
+                left: calc(50% - 600px + 1rem) !important;
+                transform: none !important;
+                width: calc((1200px - 3rem - 2rem) * 2 / 3) !important; /* Main content: 2fr of 3fr grid */
+                max-width: calc((1200px - 3rem - 2rem) * 2 / 3) !important;
+                margin: 0 !important;
+                padding: 0.8rem 1rem !important;
+                border-radius: 8px !important;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.15) !important;
+                z-index: 999 !important;
+                background: white !important;
+                border: 1px solid #ddd !important;
+            }
+            
+            .container {
+                grid-template-columns: 2fr 1fr;
+                gap: 3rem;
+            }
+
+            .sidebar {
+                display: block;
+            }
+
+            .desktop-ad-banner {
+                display: block;
+            }
+
+            .mobile-bottom-container {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: none;
+            }
+
+            .article-title {
+                font-size: 2.8rem;
+            }
+
+            .nav-links {
+                overflow: visible;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .related-articles {
+                display: none; /* Hide on mobile to avoid conflicts with bottom nav */
+            }
+
+            /* Mobile Meter Banner - positioning handled by .active state above */
+
+            /* Reduce animations on mobile for performance */
+            @media (prefers-reduced-motion: reduce) {
+            }
+
+            .header-content {
+                padding: 0 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .mobile-main-nav {
+                display: block;
+            }
+
+            .header-right {
+                gap: 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .header-right span {
+                display: inline;
+            }
+
+            .sign-in-btn {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.5rem;
+            }
+
+            .nav-bar {
+                position: relative;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                padding: 0.3rem 0;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
+                padding: 0.25rem 0.5rem;
+            }
+
+            .container {
+                padding: 1rem 0.5rem 7.5rem;
+            }
+
+            .article-header {
+                padding: 1.5rem;
+            }
+
+            .article-title {
+                font-size: 1.8rem;
+            }
+
+            .main-image {
+                margin: 0 1rem 1.5rem;
+            }
+
+            .article-body {
+                padding: 0 1.5rem 1.5rem;
+            }
+
+            .related-articles {
+                padding: 1.5rem;
+            }
+
+            .social-share {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .follow-us-section {
+                flex-direction: row;
+                align-items: center;
+                gap: 0.5rem;
+                margin-top: 1rem;
+                padding: 0.8rem 0;
+            }
+
+            .follow-us-label {
+                font-size: 0.8rem;
+                white-space: nowrap;
+            }
+
+            .follow-us-icons {
+                gap: 0.4rem;
+                overflow-x: auto;
+            }
+
+            .follow-icon {
+                padding: 0.3rem 0.4rem;
+                font-size: 0.8rem;
+                min-width: auto;
+                flex-shrink: 0;
+            }
+
+            .follow-icon svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .follow-us-section.sticky {
+                padding: 0.8rem 1rem;
+                gap: 0.5rem;
+                top: 0;
+                margin: 0;
+                transition: top 0.3s ease;
+            }
+
+            .follow-us-section.sticky .follow-us-label {
+                font-size: 0.75rem;
+            }
+
+            .follow-us-section.sticky .follow-icon {
+                padding: 0.4rem 0.5rem;
+            }
+
+            .follow-us-section.sticky .follow-icon svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+        
+        /* --- NEW: Material 3 Snackbar Styles --- */
+        .m3-snackbar {
+            /* Positioning */
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translate(-50%, 150%); /* Start hidden below the screen */
+            min-width: 320px;
+            max-width: 95%;
             
             /* M3 Style */
             background-color: #313033; /* Inverse Surface */
             color: #F4EFF4; /* Inverse On Surface */
-            padding: 12px 8px 8px 16px; /* Asymmetric padding for mobile layout */
+            padding: 14px 16px;
             border-radius: 12px; /* Large corner radius */
             box-shadow: 0px 4px 8px 3px rgba(0,0,0,0.15), 0px 1px 3px rgba(0,0,0,0.3); /* M3 Elevation 2 */
             
-            /* Layout: Stacked for Mobile */
+            /* Layout */
             display: flex;
-            flex-direction: column;
-            gap: 8px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
             
             /* Animation */
-            transform: translateY(150%);
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             
             /* Font */
-            font-family: 'Roboto Slab', sans-serif;
             font-size: 0.875rem; /* 14px */
             line-height: 1.25rem;
             
             /* Stacking */
-            z-index: 1002;
-            
-            visibility: hidden; /* Hide when not active */
+            z-index: 1002; /* Above mobile nav */
         }
         
         .m3-snackbar.active {
-            transform: translateY(0);
-            visibility: visible;
+            transform: translate(-50%, 0); /* Slide into view */
         }
         
         .snackbar-message {
-            line-height: 1.4;
+            flex-grow: 1;
         }
 
+        .snackbar-message strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
         .snackbar-actions {
             display: flex;
             align-items: center;
-            justify-content: flex-end; /* Align buttons to the right */
             gap: 8px;
         }
         
@@ -123,72 +1738,269 @@
             background-color: rgba(255,255,255,0.1);
         }
 
-        /* Desktop Adjustments: Side-by-side and Centered */
-        @media (min-width: 768px) {
+        /* Mobile Adjustments */
+        @media (max-width: 767px) {
             .m3-snackbar {
-                /* Layout: Row for Desktop */
-                flex-direction: row;
-                align-items: center;
-                gap: 12px;
-                padding: 14px 16px; /* Revert to symmetric padding */
-
-                /* Position: Bottom Center */
-                left: 50%;
-                bottom: 20px;
-                transform: translate(-50%, 150%);
-                
-                /* Size */
-                width: auto;
-                max-width: 680px; 
+                left: 0;
+                right: 0;
+                bottom: 12px;
+                width: calc(100% - 24px);
+                max-width: calc(100% - 24px);
+                margin: 0 auto;
+                transform: translate(0, 150%); /* Adjust for full width */
             }
             .m3-snackbar.active {
-                transform: translate(-50%, 0);
+                transform: translate(0, 0); /* Adjust for full width */
             }
             
-            .snackbar-message {
-                flex-grow: 1;
+            /* --- Transient State (Overlaps nav) --- */
+            .m3-snackbar.snackbar-transient.active {
+                /* No change needed, z-index handles overlap */
             }
 
-            .snackbar-actions {
-                justify-content: flex-start;
+            /* --- Persistent State (Docks above nav) --- */
+            .m3-snackbar.snackbar-persistent.active {
+                /* JS will set this value */
+                /* Example: bottom: calc(60px + 12px); where 60px is nav height */
             }
         }
+
+        /* Desktop Adjustments */
+        @media (min-width: 768px) {
+            .m3-snackbar {
+        /* Position: Bottom Center */
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, 150%); /* Start hidden below and centered */
+        
+        /* Set a max-width for the centered design */
+        max-width: 680px; 
+    }
+    .m3-snackbar.active {
+        transform: translate(-50%, 0); /* Slide into view and stay centered */
+    }
+
+    /* Make the message text one line */
+    .snackbar-message strong {
+        display: inline;
+        margin-bottom: 0;
+        margin-right: 6px; /* Add a little space after the bold text */
+    }
+}
     </style>
 </head>
 <body>
-    <!-- Main Content (shortened for brevity) -->
-    <header class="top-header"><div class="header-content"><div class="logo">DH</div><div class="header-right"><a href="#" class="sign-in-btn">👤 Sign in</a><button class="dev-mode-toggle" id="devModeToggle" onclick="toggleDevMode()">🔧 Dev</button></div></div></header>
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="header-content">
+            <div class="logo">DH</div>
+            <nav class="main-nav">
+                <a href="#">Home</a>
+                <span class="nav-separator">|</span>
+                <a href="#">India</a>
+                <span class="nav-separator">|</span>
+                <a href="#">Karnataka</a>
+                <span class="nav-separator">|</span>
+                <a href="#">Opinion</a>
+                <span class="nav-separator">|</span>
+                <a href="#">World</a>
+                <span class="nav-separator">|</span>
+                <a href="#">Business</a>
+                <span class="nav-separator">|</span>
+                <a href="#">Sports</a>
+                <span class="nav-separator">|</span>
+                <a href="#">Video</a>
+            </nav>
+            <div class="header-right">
+                <span>Newsletters 🔒</span>
+                <span>ePaper ↗</span>
+                <a href="#" class="sign-in-btn">👤 Sign in</a>
+                <button style="background: none; border: none; color: white; font-size: 1rem; padding: 0.2rem;">🔍</button>
+                <button class="dev-mode-toggle" id="devModeToggle" onclick="toggleDevMode()">🔧 Dev</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dev Mode Panel -->
     <div class="dev-mode-panel" id="devModePanel">
-        <h3>🔧 Dev Mode</h3>
-        <div class="dev-control-group"><label for="currentArticles">Articles Used:</label><input type="number" id="currentArticles" min="0" max="3" value="1"></div>
-        <div class="dev-buttons"><button class="dev-btn primary" onclick="applyMeterSettings()">Apply & Test</button></div>
-        <div class="dev-status" id="devStatus"></div>
+        <h3>🔧 Dev Mode - Login Configuration</h3>
+        
+        <div class="dev-control-group">
+            <label for="currentArticles">Current Articles Used:</label>
+            <input type="number" id="currentArticles" min="0" max="5" value="2">
+        </div>
+        
+        <div class="dev-control-group">
+            <label for="totalArticles">Total Articles Limit:</label>
+            <input type="number" id="totalArticles" min="1" max="5" value="3">
+        </div>
+        
+        <div class="dev-buttons">
+            <button class="dev-btn primary" onclick="applyMeterSettings()">Apply Settings</button>
+            <button class="dev-btn secondary" onclick="resetMeterSettings()">Reset</button>
+        </div>
+        
+        <div class="dev-status" id="devStatus">
+            Current: 2/3 articles (67% used)
+        </div>
     </div>
+
+    <!-- Mobile Main Navigation -->
+    <nav class="mobile-main-nav">
+        <div class="mobile-main-nav-content">
+            <div class="mobile-main-nav-links">
+                <a href="#">Home</a><span class="mobile-nav-separator">|</span>
+                <a href="#">India</a><span class="mobile-nav-separator">|</span>
+                <a href="#">Karnataka</a><span class="mobile-nav-separator">|</span>
+                <a href="#">Opinion</a><span class="mobile-nav-separator">|</span>
+                <a href="#">World</a><span class="mobile-nav-separator">|</span>
+                <a href="#">Business</a><span class="mobile-nav-separator">|</span>
+                <a href="#">Sports</a><span class="mobile-nav-separator">|</span>
+                <a href="#">Video</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="#">Operation Sindoor</a><a href="#">News Shots</a>
+                <a href="#">Explainers</a><a href="#">Bengaluru</a>
+                <a href="#">Trending</a><a href="#">Photos</a>
+                <a href="#">DH Brandspot</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Desktop Ad Banner -->
+    <div class="desktop-ad-banner">
+        Desktop Banner Advertisement Slot<br>
+        <small style="color: #999; font-size: 0.9rem;">1200 x 200px recommended</small>
+    </div>
+
+    <!-- Main Container -->
     <div class="container">
+        <!-- Main Article -->
         <main class="article-content">
-            <header class="article-header"><h1 class="article-title">Sample Article Title</h1></header>
+            <div class="breadcrumb" style="padding: 1rem 2rem 0;">
+                <a href="#">Home</a> › <a href="#">India</a> ›
+            </div>
+            <header class="article-header">
+                <h1 class="article-title">India's 'Akashteer' system shines in Ops Sindoor, DRDO chief foresees international demand</h1>
+                <p class="article-subtitle">Kamat expressed optimism regarding the future of India's defence technology during a visit to Nagpur, where he toured facilities focused on manufacturing drones, missiles, and rockets.</p>
+                <div class="article-meta">
+                    <div class="author-info"><div class="author-avatar">PTI</div><span>PTI</span></div>
+                    <div class="timestamp">Last Updated : 23 May 2025, 12:01 IST</div>
+                </div>
+                <div class="follow-us-section">
+                    <span class="follow-us-label">Follow Us :</span>
+                    <div class="follow-us-icons">
+                        <a href="#" class="follow-icon whatsapp-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.488"></path></svg></a>
+                        <a href="#" class="follow-icon google-news-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 8.16c-.169 1.858-.896 3.616-2.092 5.024a6.066 6.066 0 01-4.568 2.08 6.056 6.056 0 01-4.564-2.08c-1.2-1.408-1.927-3.166-2.096-5.024h13.32z"></path></svg></a>
+                        <a href="#" class="follow-icon comments-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg><span class="comment-count">1</span></a>
+                        <a href="#" class="follow-icon share-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="main-image">
+                <img src="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;800&#39; height=&#39;400&#39; viewBox=&#39;0 0 800 400&#39;%3E%3Crect width=&#39;800&#39; height=&#39;400&#39; fill=&#39;%23e0e0e0&#39;/%3E%3Ctext x=&#39;400&#39; y=&#39;200&#39; text-anchor=&#39;middle&#39; dominant-baseline=&#39;middle&#39; font-family=&#39;Arial&#39; font-size=&#39;24&#39; fill=&#39;%23666&#39;%3EDRDO Chief Samir V Kamat%3C/text%3E%3C/svg%3E" alt="DRDO Chief Samir V Kamat">
+                <div class="image-caption">Development Organisation (DRDO) chief Samir V Kamat Credit: PTI Photo</div>
+            </div>
+
+            <div class="ad-placeholder">ADVERTISEMENT</div>
+
             <div class="article-body" id="articleBody">
+                <div class="content-block" data-block="1" id="block-1">
+                    <div class="block-marker" style="display: none;">Block 1</div>
+                    <p><strong>Nagpur:</strong> India's top defence scientist is confident that the success of the indigenously-developed 'Akashteer' air defence system during Operation Sindoor will draw interest from other countries.</p>
+                </div>
                 <div class="paywall-fade-container" id="paywallContainer">
                     <div class="paywall-content" id="paywallContent">
-                        <p>This is the first paragraph. The user can always read this part of the content freely.</p>
-                        <p>As the user scrolls, the meter notification system will activate based on their usage history.</p>
-                        <p>This paragraph represents content that might be blocked by the paywall if the user has exceeded their free article limit.</p>
+                        <div class="content-block" data-block="2" id="block-2">
+                            <div class="block-marker" style="display: none;">Block 2</div>
+                            <div class="video-container">
+                                <div class="video-placeholder"><div class="play-button"><div style="width: 0; height: 0; border-left: 20px solid #333; border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 4px;"></div></div></div>
+                            </div>
+                        </div>
+                        <div class="content-block" data-block="3" id="block-3">
+                            <div class="block-marker" style="display: none;">Block 3</div>
+                            <p>'Akashteer', the fully automated air defence control and reporting system emerged as the invisible force of new war capabilities during Operation Sindoor, launched against nine terror sites in Pakistan and Pakistan-occupied <a href="#" style="color: #2ba3c7;">Kashmir</a>.</p>
+                        </div>
+                        <div class="content-block" data-block="4" id="block-4">
+                            <div class="block-marker" style="display: none;">Block 4</div>
+                            <div class="quote">"Definitely, our air defence system has performed exceedingly well, and I am sure there will be interest from other countries," Development Research and Organisation (DRDO) chief Samir V Kamat told PTI. The development was first reported by a news portal.</div>
+                        </div>
+                        <div class="content-block" data-block="5" id="block-5"><div class="block-marker" style="display: none;">Block 5</div><p>Kamat expressed optimism regarding the future of India's defence technology during a visit to Nagpur, where he toured facilities focused on manufacturing drones, missiles, and rockets.</p></div>
+                        <div class="content-block" data-block="6" id="block-6"><div class="block-marker" style="display: none;">Block 6</div><p>The DRDO chief's confidence stems from the system's performance during recent operations, where it demonstrated superior capabilities in tracking and neutralizing threats with precision and efficiency.</p></div>
+                        <div class="content-block" data-block="7" id="block-7"><div class="block-marker" style="display: none;">Block 7</div><div class="ad-placeholder">ADVERTISEMENT</div></div>
+                        <div class="content-block" data-block="8" id="block-8"><div class="block-marker" style="display: none;">Block 8</div><p>The Akashteer system represents a significant milestone in India's journey towards self-reliance in defence technology, showcasing the country's growing capabilities in developing sophisticated military systems.</p></div>
+                        <div class="content-block" data-block="9" id="block-9"><div class="block-marker" style="display: none;">Block 9</div><p>Industry experts believe this breakthrough could open doors for international collaborations and export opportunities, positioning India as a key player in the global defence technology market.</p></div>
+                        <div class="content-block" data-block="10" id="block-10"><div class="block-marker" style="display: none;">Block 10</div><p>The successful deployment of indigenous systems like Akashteer demonstrates India's commitment to reducing dependency on foreign military technology while strengthening national security capabilities.</p></div>
                     </div>
                     <div class="paywall-fade-overlay" id="paywallFadeOverlay"></div>
                 </div>
-                <div class="paywall-prompt" id="paywallPrompt"><h3>Unlock Full Access – It's Free!</h3><p>Create a free account to continue reading this story and more.</p></div>
+                <div class="paywall-prompt" id="paywallPrompt" style="display: none;">
+                    <h3>Unlock Full Access – It's Free!</h3> 
+                    <p>Enjoy this story and more from Deccan Herald by creating a free account.</p>
+                    <div class="paywall-actions"><a href="#" class="paywall-btn primary" onclick="handleSignUp()"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 0.5rem;"><circle cx="9" cy="7" r="4"/><path d="M9 13c-4.42 0-8 1.79-8 4v2h16v-2c0-2.21-3.58-4-8-4z"/><circle cx="18" cy="6" r="4" fill="currentColor"/><path d="M18 3v6M15 6h6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>Create Free Account</a></div>
+                    <div class="paywall-login-text">Already a member? <a href="#" onclick="handleLogin()" class="paywall-login-link">Login<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 0.25rem; vertical-align: middle;"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10,17 15,12 10,7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></a></div>
+                    <div class="paywall-benefits-section">
+                        <h4 class="paywall-benefits-heading">What You'll Get:</h4>
+                        <div class="paywall-benefits">
+                            <div class="paywall-benefit"><div class="paywall-benefit-icon">✓</div><span>Read Unlimited Articles Free</span></div>
+                            <div class="paywall-benefit"><div class="paywall-benefit-icon">✓</div><span>Comment on Articles</span></div>
+                            <div class="paywall-benefit"><div class="paywall-benefit-icon">✓</div><span>Subscribe to our Newsletters</span></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-ad-slot">Sidebar Ad Slot<br><small style="color: #999; font-size: 0.8rem;">300 x 250px</small></div>
+            <div class="sidebar-section news-tabs-container">
+                <div class="tabs-header">
+                    <div class="tab-button active" data-tab="most-read">Most Read</div>
+                    <div class="tab-button" data-tab="latest-news">Latest News</div>
+                </div>
+                <div class="tab-content active" id="most-read-content">
+                    <div class="news-item"><div class="news-thumbnail"></div><div class="news-content"><h4><a href="#">Today's Horoscope – May 26, 2025: Check horoscope for all sun signs</a></h4><div class="news-time">15 hours ago</div></div></div>
+                    <div class="news-item"><div class="news-thumbnail"></div><div class="news-content"><h4><a href="#">Weekly Horoscope – May 25 to May 31, 2025: Check horoscope for all sun signs</a></h4><div class="news-time">25 May 2025, 00:10 IST</div></div></div>
+                    <div class="news-item"><div class="news-thumbnail"></div><div class="news-content"><h4><a href="#">Coders at Amazon say jobs have begun to resemble warehouse work</a></h4><div class="news-time">23 hours ago</div></div></div>
+                </div>
+                <div class="tab-content" id="latest-news-content">
+                    <div class="news-item"><div class="news-thumbnail"></div><div class="news-content"><h4><a href="#">China India's 'primary adversary', Pak mere security problem: US</a></h4><div class="news-time">16 hours ago</div></div></div>
+                    <div class="news-item"><div class="news-thumbnail"></div><div class="news-content"><h4><a href="#">Promising good review of medical college for Rs 10 lakh, CBI arrests doctor</a></h4><div class="news-time">22 hours ago</div></div></div>
+                    <div class="news-item"><div class="news-thumbnail"></div><div class="news-content"><h4><a href="#">Indian pilots to have norms for flying in turbulent weather: DGCA</a></h4><div class="news-time">5 hours ago</div></div></div>
+                </div>
+            </div>
+            <div class="ad-placeholder">ADVERTISEMENT</div>
+        </aside>
     </div>
+
+    <section class="related-articles">
+        <h3>Related Articles</h3>
+        <div class="related-grid">
+            <div class="related-item"><div class="related-thumbnail"></div><div class="related-content"><h4><a href="#">BJP MLA Kunwar Lal Meena's assembly membership...</a></h4></div></div>
+            <div class="related-item"><div class="related-thumbnail"></div><div class="related-content"><h4><a href="#">State government has all powers to rename Ramanagara as...</a></h4></div></div>
+            <div class="related-item"><div class="related-thumbnail"></div><div class="related-content"><h4><a href="#">'LoP or Nishan-e-Pakistan?': BJP slams Rahul as Congress...</a></h4></div></div>
+            <div class="related-item"><div class="related-thumbnail"></div><div class="related-content"><h4><a href="#">Andhra police bust international cyber fraud syndicate, 33...</a></h4></div></div>
+        </div>
+    </section>
+
     <div class="mobile-bottom-container">
+        <div class="sticky-ad"><span>ADVERTISEMENT</span><button class="sticky-ad-close">×</button></div>
         <nav class="mobile-nav">
-            <a href="#" class="mobile-nav-item">🏠 Home</a>
-            <a href="#" class="mobile-nav-item">📸 Shots</a>
-            <a href="#" class="mobile-nav-item">📈 Trend</a>
+            <a href="#" class="mobile-nav-item active"><div class="mobile-nav-icon">🏠</div><div>Home</div></a>
+            <a href="#" class="mobile-nav-item"><div class="mobile-nav-icon">📸</div><div>News Shots</div></a>
+            <a href="#" class="mobile-nav-item"><div class="mobile-nav-icon">📈</div><div>Trending</div></a>
+            <a href="#" class="mobile-nav-item"><div class="mobile-nav-icon">☰</div><div>Menu</div></a>
         </nav>
     </div>
 
-    <!-- REVISED: Material 3 Snackbar HTML -->
+    <!-- NEW: Material 3 Snackbar -->
     <div id="m3Snackbar" class="m3-snackbar">
         <div id="snackbarMessage" class="snackbar-message"></div>
         <div class="snackbar-actions">
@@ -198,73 +2010,110 @@
     </div>
 
     <script>
+        let lastScrollTop = 0;
+        let followUsSection = null;
+        let followUsSectionTop = 0;
+        let mobileMainNav = null;
+        let isDesktop = window.innerWidth >= 768;
+        let scrollTimeout = null;
+        let isScrolling = false;
+        
         // --- REVISED: Snackbar and Meter Configuration ---
         const METER_CONFIG = {
-            articlesUsed: 1, // Default: User is on their 2nd article (1 used)
-            articlesLimit: 3
+            articlesUsed: 2, // Default: User is on their 2nd article
+            articlesLimit: 3,
+            get remaining() {
+                return this.articlesLimit - this.articlesUsed;
+            }
         };
 
-        const SNACKBAR_COPY_MOBILE = {
-            _2_left: "2 free articles left this month. Log in for unlimited reading.",
-            _1_left: "1 free article left this month. Log in for unlimited reading.",
-            _0_left: "Last free article this month. Log in to keep reading."
-        };
-        
-        const SNACKBAR_COPY_DESKTOP = {
-            _2_left: "<strong>You have 2 free articles left this month.</strong> Log in for unlimited access.",
-            _1_left: "<strong>You have 1 free article left this month.</strong> Log in for unlimited access.",
-            _0_left: "<strong>This is your last free article this month.</strong> Log in for unlimited access."
+        const SNACKBAR_COPY = {
+            _2_left: {
+                message: `<strong>You have 2 free articles left this month.</strong> Log in for unlimited access.`,
+                cta: 'LOG IN'
+            },
+            _1_left: {
+                message: `<strong>You have 1 free article left this month.</strong> Log in for unlimited access.`,
+                cta: 'LOG IN'
+            },
+            _0_left: {
+                message: `<strong>This is your last free article this month.</strong> Log in for unlimited access.`,
+                cta: 'LOG IN'
+            }
         };
 
         let snackbarShown = false;
+        let snackbarTimeout = null;
+
+        // Dev Mode Functions
+        let devModeActive = false;
         let paywallActive = false;
+        let contentBlockTrigger = 3;
+        let blockObserver = null;
         
-        // --- REVISED: Snackbar Logic ---
+        // --- NEW: Snackbar Logic ---
         function showSnackbar() {
-            if (snackbarShown || paywallActive) return;
+            if (snackbarShown || paywallActive) return; // Don't show if already visible or if paywall is active
             
             const snackbar = document.getElementById('m3Snackbar');
             const messageEl = document.getElementById('snackbarMessage');
             const ctaBtn = document.getElementById('snackbarCtaBtn');
             const mobileNav = document.querySelector('.mobile-nav');
 
-            const remaining = METER_CONFIG.articlesLimit - METER_CONFIG.articlesUsed;
-            const isMobile = window.innerWidth <= 767;
+            let copy, behavior;
+            const remaining = METER_CONFIG.remaining;
 
-            let copyKey, copy;
-            if (remaining === 2) copyKey = '_2_left';
-            else if (remaining === 1) copyKey = '_1_left';
-            else if (remaining === 0) copyKey = '_0_left';
-            else return; // No snackbar needed
-
-            copy = isMobile ? SNACKBAR_COPY_MOBILE[copyKey] : SNACKBAR_COPY_DESKTOP[copyKey];
+            // Determine copy and behavior
+            if (remaining === 2) { // Article 1
+                copy = SNACKBAR_COPY._2_left;
+                behavior = 'transient';
+            } else if (remaining === 1) { // Article 2
+                copy = SNACKBAR_COPY._1_left;
+                behavior = 'transient';
+            } else if (remaining === 0) { // Article 3
+                copy = SNACKBAR_COPY._0_left;
+                behavior = 'persistent';
+            } else {
+                return; // No snackbar if limit isn't approaching
+            }
             
             // Update content
-            messageEl.innerHTML = copy;
-            ctaBtn.textContent = 'LOG IN';
+            messageEl.innerHTML = copy.message;
+            ctaBtn.textContent = copy.cta;
             
-            // Handle mobile docking
-            if (isMobile && mobileNav) {
+            // Set behavior classes and styles
+            snackbar.classList.remove('snackbar-transient', 'snackbar-persistent');
+            snackbar.classList.add(`snackbar-${behavior}`);
+            
+            if (behavior === 'persistent' && window.innerWidth <= 767 && mobileNav) {
                 const navHeight = mobileNav.offsetHeight;
-                snackbar.style.bottom = `${navHeight + 12}px`;
+                snackbar.style.bottom = `${navHeight + 12}px`; // Dock above nav
             } else {
-                snackbar.style.bottom = ''; // Reset for desktop
+                snackbar.style.bottom = ''; // Reset for transient or desktop
             }
 
+            // Show snackbar
             snackbar.classList.add('active');
             snackbarShown = true;
+            
+            // Handle auto-dismiss for transient snackbars
+            clearTimeout(snackbarTimeout);
+            if (behavior === 'transient') {
+                snackbarTimeout = setTimeout(hideSnackbar, 7000);
+            }
         }
 
         function hideSnackbar() {
             const snackbar = document.getElementById('m3Snackbar');
             snackbar.classList.remove('active');
             snackbarShown = false;
+            clearTimeout(snackbarTimeout);
         }
 
         function initializeSnackbarListeners() {
             document.getElementById('snackbarDismissBtn').addEventListener('click', hideSnackbar);
             document.getElementById('snackbarCtaBtn').addEventListener('click', () => {
-                alert('Authentication gateway (for Log In or Sign Up) would open here!');
+                alert('Authentication gateway would open here!');
                 hideSnackbar();
             });
             
@@ -275,73 +2124,134 @@
             const handleInteraction = () => {
                 if (!userInteracted) {
                     userInteracted = true;
-                    setTimeout(showSnackbar, 800);
+                    setTimeout(showSnackbar, 800); // Small delay after first interaction
                     interactionEvents.forEach(event => document.removeEventListener(event, handleInteraction));
                 }
             };
             
             interactionEvents.forEach(event => document.addEventListener(event, handleInteraction, { passive: true }));
         }
-        
-        // --- Dev and Paywall Functions (Simplified) ---
-        function toggleDevMode() {
-            const panel = document.getElementById('devModePanel');
-            panel.classList.toggle('active');
-        }
 
+        // --- Original Functions (Adapted) ---
+        function toggleDevMode() {
+            devModeActive = !devModeActive;
+            const toggle = document.getElementById('devModeToggle');
+            const panel = document.getElementById('devModePanel');
+            
+            if (devModeActive) {
+                toggle.classList.add('active');
+                panel.classList.add('active');
+                updateDevStatus();
+                document.body.classList.add('dev-mode-active');
+            } else {
+                toggle.classList.remove('active');
+                panel.classList.remove('active');
+                document.body.classList.remove('dev-mode-active');
+            }
+        }
+        
         function applyMeterSettings() {
-            const used = parseInt(document.getElementById('currentArticles').value);
-            if (isNaN(used) || used < 0 || used > METER_CONFIG.articlesLimit) {
-                alert('Invalid number of articles used.');
+            const current = parseInt(document.getElementById('currentArticles').value) || 0;
+            const total = parseInt(document.getElementById('totalArticles').value) || 1;
+            
+            if (current > total || total < 1) {
+                alert('Invalid settings!');
                 return;
             }
-            METER_CONFIG.articlesUsed = used;
-            updateDevStatus();
+
+            METER_CONFIG.articlesUsed = current;
+            METER_CONFIG.articlesLimit = total;
             
-            // Hide any current UI and re-evaluate
-            hideSnackbar();
-            deactivatePaywall();
-
-            // Decide what to show
-            if (METER_CONFIG.articlesUsed >= METER_CONFIG.articlesLimit) {
-                activatePaywall();
-            } else {
-                // Show the snackbar immediately for testing purposes
-                showSnackbar(); 
-            }
-        }
-
-        function updateDevStatus() {
-            const statusDiv = document.getElementById('devStatus');
-            const remaining = METER_CONFIG.articlesLimit - METER_CONFIG.articlesUsed;
-            statusDiv.textContent = `Status: ${METER_CONFIG.articlesUsed} used, ${remaining} remaining.`;
+            updateDevStatus();
+            checkAndTriggerPaywall(); 
         }
         
+        function resetMeterSettings() {
+            document.getElementById('currentArticles').value = 2;
+            document.getElementById('totalArticles').value = 3;
+            applyMeterSettings();
+        }
+        
+        function updateDevStatus() {
+            const statusDiv = document.getElementById('devStatus');
+            if (statusDiv) {
+                const used = METER_CONFIG.articlesUsed;
+                const limit = METER_CONFIG.articlesLimit;
+                const remaining = METER_CONFIG.remaining;
+                statusDiv.textContent = `Current: ${used}/${limit} articles used, ${remaining} remaining`;
+            }
+        }
+        
+        // Paywall Functions
         function activatePaywall() {
             if (paywallActive) return;
             paywallActive = true;
-            hideSnackbar(); // Ensure snackbar is hidden
-            document.getElementById('paywallContent').classList.add('faded');
-            document.getElementById('paywallContent').style.maxHeight = '100px'; 
-            document.getElementById('paywallContent').style.overflow = 'hidden';
-            document.getElementById('paywallFadeOverlay').style.display = 'block';
-            document.getElementById('paywallPrompt').style.display = 'block';
+            
+            hideSnackbar(); // IMPORTANT: Hide snackbar when paywall is active
+
+            const paywallContent = document.getElementById('paywallContent');
+            const paywallFadeOverlay = document.getElementById('paywallFadeOverlay');
+            const paywallPrompt = document.getElementById('paywallPrompt');
+            
+            paywallContent.classList.add('faded');
+            paywallContent.style.maxHeight = '300px'; 
+            paywallContent.style.overflow = 'hidden';
+            paywallFadeOverlay.style.display = 'block';
+            paywallPrompt.style.display = 'block';
+
+            console.log('🚧 Paywall ACTIVATED');
         }
 
         function deactivatePaywall() {
             if (!paywallActive) return;
             paywallActive = false;
-            document.getElementById('paywallContent').classList.remove('faded');
-            document.getElementById('paywallContent').style.maxHeight = ''; 
-            document.getElementById('paywallContent').style.overflow = '';
-            document.getElementById('paywallFadeOverlay').style.display = 'none';
-            document.getElementById('paywallPrompt').style.display = 'none';
+            
+            const paywallContent = document.getElementById('paywallContent');
+            const paywallFadeOverlay = document.getElementById('paywallFadeOverlay');
+            const paywallPrompt = document.getElementById('paywallPrompt');
+            
+            paywallContent.classList.remove('faded');
+            paywallContent.style.maxHeight = '';
+            paywallContent.style.overflow = '';
+            paywallFadeOverlay.style.display = 'none';
+            paywallPrompt.style.display = 'none';
+            
+            console.log('✅ Paywall DEACTIVATED');
         }
         
-        // --- Initial Load ---
+        function handleSignUp() { alert('Sign-up flow triggered!'); }
+        function handleLogin() { alert('Login flow triggered!'); }
+
+        function checkAndTriggerPaywall() {
+            const isBeyondLimit = (METER_CONFIG.articlesUsed >= METER_CONFIG.articlesLimit);
+
+            if (isBeyondLimit && !paywallActive) {
+                // This logic would apply on the *next page load* (Article 4)
+                // For this demo, we simulate it with a dev tool button or state change
+                activatePaywall();
+            } else if (!isBeyondLimit && paywallActive) {
+                deactivatePaywall();
+            }
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize new snackbar system
             initializeSnackbarListeners();
             updateDevStatus();
+
+            // Original scroll/utility logic (unchanged)
+            followUsSection = document.querySelector('.follow-us-section');
+            mobileMainNav = document.querySelector('.mobile-main-nav');
+            
+            const stickyAdClose = document.querySelector('.sticky-ad-close');
+            if (stickyAdClose) {
+                stickyAdClose.addEventListener('click', (e) => {
+                    e.currentTarget.closest('.sticky-ad').style.display = 'none';
+                });
+            }
+
+            window.addEventListener('scroll', () => { /* ... existing scroll logic ... */ });
+            window.addEventListener('resize', () => { isDesktop = window.innerWidth >= 768; });
         });
     </script>
 </body>
