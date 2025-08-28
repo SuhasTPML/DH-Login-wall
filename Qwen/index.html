@@ -1727,20 +1727,26 @@
         }
         
         .snackbar-cta-btn {
-            background-color: transparent;
+            background-color: #A8C7FA; /* Filled background with Inverse Primary color */
             border: none;
             padding: 8px 12px;
-            color: #A8C7FA; /* Inverse Primary */
+            color: #313033; /* Dark text for contrast */
             font-weight: 600;
             font-size: 0.875rem;
             cursor: pointer;
             border-radius: 6px;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, transform 0.2s;
             align-self: center; /* Vertically center the button */
         }
         
         .snackbar-cta-btn:hover {
-            background-color: rgba(255,255,255,0.1);
+            background-color: #8AA9D6; /* Darker shade on hover */
+            transform: translateY(-1px); /* Subtle lift effect */
+        }
+        
+        .snackbar-cta-btn:active {
+            background-color: #6C8BB4; /* Even darker shade when pressed */
+            transform: translateY(0); /* Remove lift effect when pressed */
         }
         
         .snackbar-dismiss-btn {
