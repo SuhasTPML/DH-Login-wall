@@ -1690,18 +1690,40 @@
         
         .snackbar-message {
             flex-grow: 1;
+            /* Allow text to wrap */
+            white-space: normal;
+            word-wrap: break-word;
+            max-width: calc(100% - 100px); /* Adjust based on button width */
         }
-
-        .snackbar-message strong {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 2px;
+        
+        /* Style for mobile two-line layout */
+        @media (max-width: 767px) {
+            .snackbar-message {
+                line-height: 1.3; /* Adjust line height for better readability */
+                font-size: 1rem; /* Larger font size for the first line */
+            }
+            
+            .snackbar-message br {
+                display: none; /* Hide the br tag in mobile layout */
+            }
+            
+            .snackbar-message br + * {
+                font-size: 0.75rem; /* Smaller font size for the second line */
+                color: #CCC; /* Lighter color for the second line */
+            }
+            
+            /* Style for bold text in mobile snackbar */
+            .snackbar-message strong {
+                font-weight: 600;
+                display: inline; /* Ensure it stays on the same line */
+            }
         }
         
         .snackbar-actions {
             display: flex;
             align-items: center;
             gap: 8px;
+            flex-shrink: 0; /* Prevent buttons from shrinking */
         }
         
         .snackbar-cta-btn {
@@ -1714,6 +1736,7 @@
             cursor: pointer;
             border-radius: 6px;
             transition: background-color 0.2s;
+            align-self: center; /* Vertically center the button */
         }
         
         .snackbar-cta-btn:hover {
@@ -1732,6 +1755,7 @@
             width: 36px;
             height: 36px;
             transition: background-color 0.2s;
+            align-self: center; /* Vertically center the button */
         }
 
         .snackbar-dismiss-btn:hover {
@@ -1748,9 +1772,19 @@
                 max-width: calc(100% - 24px);
                 margin: 0 auto;
                 transform: translate(0, 150%); /* Adjust for full width */
+                align-items: center; /* Align items vertically in the center */
             }
             .m3-snackbar.active {
                 transform: translate(0, 0); /* Adjust for full width */
+            }
+            
+            .snackbar-message {
+                flex-grow: 1;
+                margin-right: 8px; /* Add space between message and buttons */
+                max-width: calc(100% - 100px); /* Adjust based on button width */
+                /* Allow line breaks for mobile */
+                white-space: normal;
+                word-wrap: break-word;
             }
             
             /* --- Transient State (Overlaps nav) --- */
@@ -1779,12 +1813,10 @@
     .m3-snackbar.active {
         transform: translate(-50%, 0); /* Slide into view and stay centered */
     }
-
-    /* Make the message text one line */
+    
+    /* Style for bold text in desktop snackbar */
     .snackbar-message strong {
-        display: inline;
-        margin-bottom: 0;
-        margin-right: 6px; /* Add a little space after the bold text */
+        font-weight: 600;
     }
 }
     </style>
@@ -2030,14 +2062,17 @@
         const SNACKBAR_COPY = {
             _2_left: {
                 message: `<strong>You have 2 free articles left this month.</strong> Log in for unlimited access.`,
+                messageMobile: `<strong>2 free articles</strong> left this month.`,
                 cta: 'LOG IN'
             },
             _1_left: {
                 message: `<strong>You have 1 free article left this month.</strong> Log in for unlimited access.`,
+                messageMobile: `<strong>1 free article</strong> left this month.`,
                 cta: 'LOG IN'
             },
             _0_left: {
                 message: `<strong>This is your last free article this month.</strong> Log in for unlimited access.`,
+                messageMobile: `<strong>Last free article</strong> this month.`,
                 cta: 'LOG IN'
             }
         };
@@ -2062,24 +2097,32 @@
 
             let copy, behavior;
             const remaining = METER_CONFIG.remaining;
+            const isMobile = window.innerWidth <= 767;
 
             // Determine copy and behavior
             if (remaining === 2) { // Article 1
-                copy = SNACKBAR_COPY._2_left;
+                copy = isMobile ? SNACKBAR_COPY._2_left.messageMobile : SNACKBAR_COPY._2_left.message;
                 behavior = 'transient';
             } else if (remaining === 1) { // Article 2
-                copy = SNACKBAR_COPY._1_left;
+                copy = isMobile ? SNACKBAR_COPY._1_left.messageMobile : SNACKBAR_COPY._1_left.message;
                 behavior = 'transient';
             } else if (remaining === 0) { // Article 3
-                copy = SNACKBAR_COPY._0_left;
+                copy = isMobile ? SNACKBAR_COPY._0_left.messageMobile : SNACKBAR_COPY._0_left.message;
                 behavior = 'persistent';
             } else {
                 return; // No snackbar if limit isn't approaching
             }
             
             // Update content
-            messageEl.innerHTML = copy.message;
-            ctaBtn.textContent = copy.cta;
+            messageEl.innerHTML = copy;
+            // Set CTA button text based on remaining articles
+            if (remaining === 2) {
+                ctaBtn.textContent = SNACKBAR_COPY._2_left.cta;
+            } else if (remaining === 1) {
+                ctaBtn.textContent = SNACKBAR_COPY._1_left.cta;
+            } else if (remaining === 0) {
+                ctaBtn.textContent = SNACKBAR_COPY._0_left.cta;
+            }
             
             // Set behavior classes and styles
             snackbar.classList.remove('snackbar-transient', 'snackbar-persistent');
@@ -2096,11 +2139,9 @@
             snackbar.classList.add('active');
             snackbarShown = true;
             
-            // Handle auto-dismiss for transient snackbars
-            clearTimeout(snackbarTimeout);
-            if (behavior === 'transient') {
-                snackbarTimeout = setTimeout(hideSnackbar, 7000);
-            }
+            // Note: Auto-dismiss logic for transient snackbars has been removed.
+            // They will now behave like persistent snackbars and require manual dismissal.
+            clearTimeout(snackbarTimeout); // Clear any existing timeouts
         }
 
         function hideSnackbar() {
